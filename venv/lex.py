@@ -1,7 +1,6 @@
 import sys
 
 import ply.lex as lex
-import ply.yacc as yacc;
 
 reserved = {
     'if': 'IF',
@@ -71,7 +70,7 @@ def t_newline(t):  # obsluga numerow linii
 
 
 def t_error(t):
-    print("Illegal character '%s'" % t.value[0])
+    print("line %d: Illegal character '%s'" % (token.lineno, t.value[0]))
     t.lexer.skip(1)
 
 
